@@ -16,17 +16,13 @@ module testbench;
     // 5 -> Bitwise NOT (for 2nd Input)
     // 6 -> Bitwise NOR
     // 7 -> Bitwise XNOR
-
+    integer i;
     initial begin
         cin1 = 1'b1; cin2 = 1'b0;
-        s2 = 1'b0; s1 = 1'b0; s0 = 1'b0;
-        #10; s0 = s0 + 1;
-        #10; s1 = s1 + 1;
-        #10; s0 = s0 + 1;
-        #10; s2 = s2 + 1;
-        #10; s0 = s0 + 1;
-        #10; s1 = s1 + 1;
-        #10; s0 = s0 + 1;
+        for (i = 0; i < 8; i=i+1) begin
+            {s2, s1, s0} = i;
+            #1;
+        end
     end
 
     initial
